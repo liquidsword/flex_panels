@@ -63,12 +63,15 @@
       margin: 0;
       width: 100%;
       transition: transform 0.5s;
-      border: 1px solid red;
       flex: 1 0 auto;
       display: flex;
       justify-content: center;
       align-items: center;
     }
+    .panel > *:first-child { transform: translateY(-100%);}
+    .panel.open-active > *:first-child { transform: translateY(0);}
+    .panel > *:last-child { transform: translateY(100%);}
+    .panel.open-active > *:last-child { transform: translateY(0);}
 
     .panel p {
       text-transform: uppercase;
@@ -82,6 +85,7 @@
     }
 
     .panel.open {
+      flex: 5;
       font-size: 40px;
     }
 
@@ -90,33 +94,40 @@
 
   <div class="panels">
     <div class="panel panel1">
-      <p>Hey</p>
-      <p>Let's</p>
-      <p>Dance</p>
+      <p>It's</p>
+      <p>A</p>
+      <p>Mystery</p>
     </div>
     <div class="panel panel2">
-      <p>Give</p>
-      <p>Take</p>
-      <p>Receive</p>
+      <p>Eat</p>
+      <p>Love</p>
+      <p>Repeat</p>
     </div>
     <div class="panel panel3">
-      <p>Experience</p>
-      <p>It</p>
-      <p>Today</p>
+      <p>Ashes</p>
+      <p>To</p>
+      <p>Ashes</p>
     </div>
     <div class="panel panel4">
-      <p>Give</p>
-      <p>All</p>
-      <p>You can</p>
+      <p>Dust</p>
+      <p>To</p>
+      <p>Dust</p>
     </div>
     <div class="panel panel5">
-      <p>Life</p>
-      <p>In</p>
-      <p>Motion</p>
+      <p>Space</p>
+      <p>Time</p>
+      <p>Continuum</p>
     </div>
   </div>
 
   <script>
+    const panels = document.querySelectorAll('.panels');
+
+    function toggleOpen(){
+      this.classList.toggle('open');
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen))
 
   </script>
 
