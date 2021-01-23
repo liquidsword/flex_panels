@@ -99,9 +99,9 @@
       <p>Mystery</p>
     </div>
     <div class="panel panel2">
-      <p>Eat</p>
-      <p>Love</p>
-      <p>Repeat</p>
+      <p>Space</p>
+      <p>Time</p>
+      <p>Continuum</p>
     </div>
     <div class="panel panel3">
       <p>Ashes</p>
@@ -109,25 +109,33 @@
       <p>Ashes</p>
     </div>
     <div class="panel panel4">
-      <p>Dust</p>
-      <p>To</p>
-      <p>Dust</p>
+      <p>Nurture</p>
+      <p>Cherish</p>
+      <p>Heal</p>
     </div>
     <div class="panel panel5">
-      <p>Space</p>
-      <p>Time</p>
-      <p>Continuum</p>
+      <p>Eat</p>
+      <p>Love</p>
+      <p>Repeat</p>
     </div>
   </div>
 
   <script>
-    const panels = document.querySelectorAll('.panels');
+    const panels = document.querySelectorAll('.panel');
 
     function toggleOpen(){
       this.classList.toggle('open');
     }
 
-    panels.forEach(panel => panel.addEventListener('click', toggleOpen))
+    function toggleActive(e) {
+      console.log(e.propertyName);
+      if(e.propertyName.includes('flex')){
+        this.classList.toggle('open-active')
+      }
+    }
+
+    panels.forEach(panel => panel.addEventListener('click', toggleOpen));
+    panels.forEach(panel => panel.addEventListener('transitionend', toggleActive));
 
   </script>
 
